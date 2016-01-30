@@ -184,8 +184,18 @@
           });
         }
       }
+      const App = (props) => (
+        <div className="app">
+          <Game />
+          <div className="footer">
+            <a href="https://en.wikipedia.org/wiki/15_puzzle">About the Game</a>
+            &bull;
+            <a href="https://github.com/ZuTa/game-of-fifteen">Source Code</a>
+          </div>
+        </div>
+      );
       ReactDOM.render(
-        <Game />,
+        <App />,
         document.getElementById('root')
       );
     </script>
