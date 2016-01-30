@@ -47,7 +47,7 @@ body {
   display: block;
 }
 
-.cell {
+.tile {
   background-color: #ccccff;
   border-radius: 8px;
   border: 2px solid #391326;

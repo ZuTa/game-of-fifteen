@@ -86,9 +86,9 @@
           return newTiles;
         },
       };
-      const Cell = props => {
+      const Tile = props => {
         const { x, y, empty, value, canMove, onClick } = props;
-        let css = "cell" + (empty ? " empty" : '') + (canMove ? " moveable" : '');
+        let css = "tile" + (empty ? " empty" : '') + (canMove ? " moveable" : '');
         return (
           <div className={css} onClick={() => canMove && onClick(x, y)}>
             <div className="value">
@@ -112,14 +112,14 @@
             for (let j = 0; j < dimension; j++) {
               const index = i * dimension + j;
               rowTiles.push(
-                <Cell
+                <Tile
                   key={index}
                   x={i}
                   y={j}
                   value={tiles[index]}
                   empty={tiles[index] === dimension * dimension}
                   canMove={Utils.canMove(tiles, i, j) && !isValid}
-                  onClick={(x, y) => this._onCellClick(x, y)}
+                  onClick={(x, y) => this._onTileClick(x, y)}
                 />
               );
             }
@@ -176,7 +176,7 @@
            };
         }
 
-        _onCellClick(x, y) {
+        _onTileClick(x, y) {
           const { moves, dimension, tiles } = this.state;
           this.setState({
             tiles: Utils.swap(tiles, x * dimension + y, Utils.getEmptyIndex(tiles)),
